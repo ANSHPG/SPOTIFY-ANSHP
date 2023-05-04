@@ -1,0 +1,117 @@
+
+.main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.page-left{
+    background-color: black;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999;
+    margin-right: 5px;
+    width: 210px;
+}
+.page-right{
+  margin-left: 240px;
+  flex:1;
+}
+.spotify-logo{
+    width: 135px;
+    margin-top: 25px;
+    margin-left:20px;
+    margin-bottom: 0;
+}
+.author{
+    margin-top: 8px;
+    margin-bottom: 50px;
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 25px;
+    font-family: 'Manrope', Arial;
+}
+.menu-icon-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+.label{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.menu-icon:hover  + .icon-text {
+    color: white;
+}
+
+.icon-text{
+    font-size: 14px;
+    font-family: 'Manrope', Arial;
+    font-weight: 700;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+.icon-text:hover {
+    color: white;
+}
+
+.icon-text-legal{
+    font-size: 10px;
+    font-family: 'Manrope', Arial;
+    font-weight: 500;
+    color: #b3b3b3;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 12px;
+}
+.icon-text-legal:hover{
+    text-decoration: underline;
+}
+
+.menu-button{
+    background-color: black;
+    border: 2px solid #434343;
+    padding: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 20px;
+    margin-top: 20%;
+}
+.menu-button:hover{
+    border: 2px solid white;
+    padding: 6px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 21px;
+}
+.menu-english{
+    padding-top: 2px;
+}
+.button-text{
+    font-size: 14px;
+    font-family: 'Manrope', Arial;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    float: right;
+    margin-left: 4px;
+    margin-top: 0x;
+}
+ .button-text:hover{
+    letter-spacing: 1px;
+}

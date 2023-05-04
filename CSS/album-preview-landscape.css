@@ -1,0 +1,130 @@
+body{
+    background-color: black;
+}
+p{
+    font-family: 'Manrope', Arial;
+}
+
+.album-container{
+    background-color: #1c1c1c;
+    padding-top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+}
+.album-container-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: yellowgreen; */
+    margin: 0;
+}
+.album-header-left{
+    flex:1;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+.album-header-right{
+    flex:1;
+    font-size: 14px;
+    color: rgb(179,179,179);
+    font-weight: 700;
+    letter-spacing: -1px;
+    word-spacing: 1px;
+    cursor: pointer;
+}
+.album-header-left:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.album-header-right:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.album-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    column-gap: 1.25vw;
+    margin-bottom: 12px;
+    
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+.album-card{
+    /* width: 207px;
+    padding: 10px; */
+    /* height: 50vh; Would mean 50% of Viewport height */
+    /* width:  13vw; Would mean 75% of Viewport width */
+    padding: 12px;
+    display: inline-block;
+    background-color: #181818;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-right: 0.83vw; */
+}
+.album-image-div{
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    position: relative;
+}
+.album-image{
+    /* filter: drop-shadow(1px 1px 6px black); */
+    margin-bottom: 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+}
+.album-image:hover + .green-play{
+    display: inline-block;
+    margin-top: 65%;
+    margin-left: -35%;
+    opacity: 1;
+}
+.green-play{
+    position: absolute;
+    width:66px;
+    margin-top: 18%;
+    margin-right: 10px;
+    opacity: 0.5;
+    filter: drop-shadow(1px 1px 6px black);
+    border: 0;
+    display: none;
+    transition: 2s;
+}
+.album-artist{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 11px;
+    margin-bottom: 0;
+}
+.album-description{
+    font-size: 13px;
+    font-weight: 700;
+    color: #a7a7a7;
+    margin-top: 9px;
+}
+.album-movie:hover {
+    color:white;
+}
+.developer-notice{
+    padding: 12px;
+    background-color: rgba(26,178,107,255);
+    white-space: nowrap;
+}
+.developer-message{
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    margin-top: 0.67vw;
+}
+.developer{
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}

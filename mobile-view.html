@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-View</title>
+     <!-- link to nunito sans font from google font similar to circular : start -->
+     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+     <!-- link to nunito sans font from google font similar to circular : end -->
+    
+    <style>
+        /* album-preview-landscape */
+        html, body {
+            overflow-y: auto;
+        }
+        body{
+    background-color: black;
+    margin: 0;
+}
+p{
+    font-family: 'Manrope', Arial;
+}
+
+.album-container{
+    background-color: #1c1c1c;
+    padding-top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+}
+.album-container-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: yellowgreen; */
+    margin: 0;
+}
+.album-header-left{
+    flex:1;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+.album-header-right{
+    flex:1;
+    font-size: 14px;
+    color: rgb(179,179,179);
+    font-weight: 700;
+    letter-spacing: -1px;
+    word-spacing: 1px;
+    cursor: pointer;
+}
+.album-header-left:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.album-header-right:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.album-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    column-gap: 1.25vw;
+    margin-bottom: 12px;
+    
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+.album-card{
+    /* width: 207px;
+    padding: 10px; */
+    /* height: 50vh; Would mean 50% of Viewport height */
+    /* width:  13vw; Would mean 75% of Viewport width */
+    padding: 12px;
+    display: inline-block;
+    background-color: #181818;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-right: 0.83vw; */
+}
+.album-image-div{
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    position: relative;
+}
+.album-image{
+    /* filter: drop-shadow(1px 1px 6px black); */
+    margin-bottom: 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+}
+.album-image:hover + .green-play{
+    display: inline-block;
+    margin-top: 65%;
+    margin-left: -35%;
+    opacity: 1;
+}
+.green-play{
+    position: absolute;
+    width:66px;
+    margin-top: 18%;
+    margin-right: 10px;
+    opacity: 0.5;
+    filter: drop-shadow(1px 1px 6px black);
+    border: 0;
+    display: none;
+    transition: 2s;
+}
+.album-artist{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 11px;
+    margin-bottom: 0;
+}
+.album-description{
+    font-size: 13px;
+    font-weight: 700;
+    color: #a7a7a7;
+    margin-top: 9px;
+}
+.album-movie:hover {
+    color:white;
+}
+.developer-notice{
+    padding: 12px;
+    background-color: rgba(26,178,107,255);
+    white-space: nowrap;
+}
+.developer-message{
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    margin-top: 0.67vw;
+}
+.developer{
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+ /* header css */
+ .header{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    height: 70px;
+}
+
+.middle-section{
+    background-color:rgb(16, 16, 16);
+    opacity: 0.9;
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.arrow-button{
+    font-family: 'Manrope', Arial;
+    border: none;
+    font-size: 20px;
+    font-weight: 400;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(9,9,9,255);
+    color: rgba(148,148,148,1);
+    margin-right: 10px;
+    cursor: pointer;
+}
+.arrow-button:hover{
+    color: white;;
+}
+.right-section{
+    background-color: rgb(16, 16, 16);
+    opacity: 0.95;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding-left: 10px;
+    flex: 1;
+}
+.sign-up{
+    font-family: 'Manrope', Arial;
+    font-size: 15px;
+    color: rgb(196, 190, 190);
+    font-weight: 700;
+    margin-right: 19px;
+    cursor: pointer;
+
+}
+.sign-up:hover{
+    color: white;
+    font-size: 16px;
+}
+.log-in{
+    font-size: 15px;
+    font-weight: 600;
+    width: 100px;
+    padding: 12px;
+    background-color: white;
+    opacity: 1;
+    border: none;
+    border-radius: 25px;
+    margin-right: 24px;
+    cursor: pointer;
+}
+.log-in:hover{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+}
+/* menu css */
+
+.main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.page-left{
+    background-color: black;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999;
+    margin-right: 5px;
+    padding-right: 2vw;
+}
+.page-right{
+  margin-left: 240px;
+  flex:1;
+}
+.spotify-logo{
+    width: 140px;
+    margin-top: 25px;
+    margin-left:20px;
+    margin-bottom: 0;
+}
+.author{
+    margin-top: 8px;
+    margin-bottom: 50px;
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 25px;
+    font-family: 'Manrope', Arial;
+}
+.menu-icon-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+.label{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.menu-icon:hover  + .icon-text {
+    color: white;
+}
+
+.icon-text{
+    font-size: 14px;
+    font-family: 'Manrope', Arial;
+    font-weight: 700;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+.icon-text:hover {
+    color: white;
+}
+
+.icon-text-legal{
+    font-size: 10px;
+    font-family: 'Manrope', Arial;
+    font-weight: 500;
+    color: #b3b3b3;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 12px;
+}
+.icon-text-legal:hover{
+    text-decoration: underline;
+}
+
+.menu-button{
+    background-color: black;
+    border: 2px solid #434343;
+    padding: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 20px;
+    margin-top: 20%;
+}
+.menu-button:hover{
+    border: 2px solid white;
+    padding: 6px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 21px;
+}
+.menu-english{
+    padding-top: 2px;
+}
+.button-text{
+    font-size: 14px;
+    font-family: 'Manrope', Arial;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    float: right;
+    margin-left: 4px;
+    margin-top: 0x;
+}
+ .button-text:hover{
+    letter-spacing: 1px;
+}
+
+    </style>
+ 
+</head>
+<body>
+<div class="main">
+<div class="page-left">
+    <div class="page-left-contain">
+        <!-- https://sites.google.com/view/upload-anshp/home -->
+        <div>
+            <img class="spotify-logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="spotify-logo">
+        </div>
+        <div >
+            <p class="author">by Anshuman Pattnaik</p>
+        </div>
+        <div class="menu-icon-container">
+            <div class="home label">
+                <img  class="menu-icon" src="https://preview.redd.it/gij8lz5leuxa1.png?width=24&format=png&auto=webp&v=enabled&s=21d76c754c43617dd660343f33678e16b9d2a94e" alt="spotify-logo">
+                <span class="icon-text">Home</span>
+            </div>
+            <div class="search label">
+                <img class="menu-icon" src="https://preview.redd.it/9j4odz5leuxa1.png?width=24&format=png&auto=webp&v=enabled&s=f13d0195bbcf86b8a75e05661ff7da14a85bcedd" alt="">
+                <span class="icon-text">Search</span>
+            </div>
+            <div class="library label" style="margin-bottom: 40px;">
+                <img class="menu-icon" src="https://preview.redd.it/e3dhiy5leuxa1.png?width=24&format=png&auto=webp&v=enabled&s=42340b0a0181cbd7ae18110932bdc5eacf0dad5f" ><span class="icon-text" >Your Library</span>
+            </div>
+            
+            <div class="liked label">
+                <img class="menu-icon"  src="https://uploads-ssl.webflow.com/5e36e6f21212670638c0d63c/5e39d85cee05be53d238681a_likedSongs.png"><span class="icon-text"> Liked Songs</span>
+            </div>
+
+            <div class="create label" style="margin-bottom: 180px;">
+                <img class="menu-icon"  src="https://preview.redd.it/pe7z106leuxa1.png?width=609&format=png&auto=webp&v=enabled&s=af0cbc5e4f13087b123903f235062e37ea95453c" alt="">
+                <a href="https://www.instagram.com/anshphere/" style="text-decoration-color: black;"><span class="icon-text">@ANSHPHERE</span></a>
+            </div>
+
+            <div class="legal"> 
+                <span class="icon-text-legal">Legal</span>
+                <span class="icon-text-legal">Privacy  Center</span>
+            </div>
+
+            <div class="legal">
+                <span class="icon-text-legal">Privacy Policy</span>
+                <span class="icon-text-legal"> Cookies</span>
+            </div>
+
+            <div class="legal">
+                <span class="icon-text-legal">About Ads</span>
+            </div>
+
+            <div class="legal">
+                <span class="icon-text-legal">Cookies</span>
+            </div>
+
+            <div class="legal">
+                <span class="icon-text-legal" style="text-decoration:none;cursor: default;">By Anshuman Pattnaik</span>
+            </div>
+
+
+
+            <div class="create label">
+                <button class="menu-button">
+                    <img class="menu-english" style="margin-right: 0;" src="https://preview.redd.it/0wl55z5leuxa1.png?width=16&format=png&auto=webp&v=enabled&s=42ca94080ce0401f9017bc983e84a432ba0c5efd" alt="">
+                    <span class="button-text" >English</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-right">
+    <div class="header">
+        <!-- <div class="left-section">
+            <img class="spotify-logo" src="icons/Spotify.svg" alt="">
+        </div> -->
+        <div class="middle-section">
+            <!-- arrow link: https://www.toptal.com/designers/htmlarrows/symbols/ -->
+            <button class="arrow-button">
+                &#10094;
+            </button>
+
+            <button class="arrow-button">
+                &#10095;
+            </button>
+        </div>
+
+        <div class="right-section">
+            <span class="sign-up">Sign up</span>
+            <button class="log-in">Log in </button>
+        </div>
+    </div>
+
+
+<div class="album-container">
+    <div class="album-container-header">
+        <div class="album-left-section"><p class="album-header-left" style="word-spacing: 5px;">Anshu's Favourites</p></div>
+        <div class="album-right-section"><p class="album-header-right">Show all</p></div>
+    </div>
+    <div class="album-row">
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67616d00001e02da50894e074ecd5ce61de0a1" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Agar Tum Saath Ho</p>
+                <p class="album-description"><span class="album-movie">Alka Yagnik </span>,<span class="album-movie"> Arijit Singh</span> <br><br><br><span class="album-movie">Tamasha</span> </p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706c0000da8480920af1547471cfc05438ca" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Apna Bana Le</p>
+                <p class="album-description"><span class="album-movie" >Arijit Singh</span> , <span class="album-movie">Sachin–Jigar</span> <br><br><br><span class="album-movie">Bhediya</span> </p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67616d00001e0225117ea77a6dd5f721a611a2" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Tum Hi Ho Bandhu</p>
+                <p class="album-description"><span class="album-movie">Sachin–Jigar</span> , <span class="album-movie">Neeraj Shridhar</span> <br><br><span class="album-movie"> Cocktail</span></p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67616d00001e02c7b8d39b1e113845906984ab" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Mast Magan</p>
+                <p class="album-description"> <span class="album-movie">Arijit Singh</span> , <span class="album-movie">Chinmayi</span> <br><br><br><span class="album-movie">2 States</span> </p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67616d00001e02118f1494d8f5ebea6cd5e20d" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Samjhawan</p>
+                <p class="album-description"><span class="album-movie">Arijit Singh</span>, <span class="album-movie">Shreya Ghoshal</span> <br><br><span class="album-movie"> Humpty Sharma Ki Dulhania</span></p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67616d00001e02ca5585b4e97cd9deeafb5c63" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Ek Zindagi</p>
+                <p class="album-description"><span class="album-movie">Sachin–Jigar</span>, <span class="album-movie">Taniska Sanghvi</span> <br><br><span class="album-movie">Angrezi Medium</span> </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="album-container-header">
+        <div class="album-left-section"><p class="album-header-left">Spotify Playlists</p></div>
+        <div class="album-right-section"><p class="album-header-right">Show all</p></div>
+    </div>
+    <div class="album-row">
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f000000021d051b0d3dcb712c312eb94b" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Today's Top Hits</p>
+                <p class="album-description">Rema & Selena Gomez are on top of the....</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002ff53eb23edd09b8920761042" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">RapCaviar</p>
+                <p class="album-description">New music from Ice Spice, Jack Harlow an... </p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002b0fe40a6e1692822f5a9d8f1" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">All Out of 2010s</p>
+                <p class="album-description">The biggest songs of the 2010s</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f000000025e81461d7898c4309ef0e02d" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Rock CLassics</p>
+                <p class="album-description">Rock legends & epic songs the continue to...</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f000000022b876bcf7696582b1f8af104" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Chill hits</p>
+                <p class="album-description">Kick back to the best new and recent chill...</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f0000000209b8f023642f0ec4ec16d991" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Viva Latino</p>
+                <p class="album-description">Today's top latin hits, elevando nuestra...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="album-container-header">
+        <div class="album-left-section"><p class="album-header-left">Focus</p></div>
+        <div class="album-right-section"><p class="album-header-right">Show all</p></div>
+    </div>
+    <div class="album-row">
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002ca5a7517156021292e5663a6" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Peaceful Piano</p>
+                <p class="album-description">Relax and indulge with beautiful piano pieces</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f000000025551996f500ba876bda73fa5" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Deep Focus</p>
+                <p class="album-description">Keep calm and focus with ambient and post...</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002fe24d7084be472288cd6ee6c" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Instrumental Study</p>
+                <p class="album-description">Focus with study music...</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002724554ed6bed6f051d9b0bfc" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Focus Flow</p>
+                <p class="album-description">Uptempo instrumental hip hop beats.</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f0000000296e08a91ef3c7a6e7bfaa9a6" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Beats to think to</p>
+                <p class="album-description">Focus with deep techno and tech house</p>
+            </div>
+        </div>
+    
+        <div class="album-card">
+            <div class="album-image-div">
+                <img class="album-image" src="https://i.scdn.co/image/ab67706f00000002fee0aa7c6bfc815873e45f9e" alt="peafceful-piano">
+                <img class="green-play"  src="https://jccdallas.org/wp-content/uploads/2020/06/Spotify-Play-Button.png" alt="green-play">
+            </div>
+            <div class="album-information">
+                <p class="album-artist">Reading Adventure</p>
+                <p class="album-description">Scores and soundtracks for daring quests, eoic...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="developer-notice">
+    <p class="developer-message">The developer of this Spotify homepage,<span class="developer">Anshuman Pattniak</span> , has made the HTML and CSS code available for public use. While there may not be any restrictions on copying it, it's always <br> recommended to obtain permission from the original developer before doing so. Nevertheless, the developer wishes you happy coding and encourages you to use the code as inspiration <br>to enhance your own development skills. </p>
+</div>
+</div>
+</div>
+</body>
+</html>
