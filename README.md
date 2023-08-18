@@ -1,4 +1,7 @@
 # Spotify-ANSHP
+
+![SPOTIFY](https://github.com/ANSHPG/SPOTIFY-ANSHP/assets/132222062/32332c7b-a771-4f5e-a1c0-c14018dc3d8a)
+
 Welcome to the Spotify Homepage Clone repository! This project is a replica of the popular music streaming platform's homepage, created by Anshuman Pattanaik using HTML and CSS code.
 
 The project aims to showcase the ability to recreate complex and aesthetically pleasing webpages using only front-end technologies. It provides a hands-on experience for those looking to improve their web development skills, particularly in HTML and CSS.
